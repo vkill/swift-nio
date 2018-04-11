@@ -54,6 +54,9 @@
             <a class="nav-group-name-link" href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/AcceptBackoffHandler.html">AcceptBackoffHandler</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/BackPressureHandler.html">BackPressureHandler</a>
               </li>
               <li class="nav-group-task">
@@ -93,6 +96,9 @@
                 <a class="nav-group-task-link" href="../Classes/MultiThreadedEventLoopGroup.html">MultiThreadedEventLoopGroup</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NIONetworkInterface.html">NIONetworkInterface</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/ServerBootstrap.html">ServerBootstrap</a>
               </li>
             </ul>
@@ -117,6 +123,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/ChannelEvent.html">ChannelEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/ChannelLifecycleError.html">ChannelLifecycleError</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/ChannelPipelineError.html">ChannelPipelineError</a>
@@ -187,7 +196,16 @@
                 <a class="nav-group-task-link" href="../Extensions/EmbeddedScheduledTask.html">EmbeddedScheduledTask</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/Heap.html">Heap</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/LinuxCPUSet.html">LinuxCPUSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/PriorityQueue.html">PriorityQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/PriorityQueue/Iterator.html">– Iterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/ScheduledTask.html">ScheduledTask</a>
@@ -347,6 +365,9 @@
                 <a class="nav-group-task-link" href="../Structs/SingleConnectionFailure.html">SingleConnectionFailure</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ThreadSpecificVariable.html">ThreadSpecificVariable</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/TimeAmount.html">TimeAmount</a>
               </li>
               <li class="nav-group-task">
@@ -357,6 +378,9 @@
           <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:3NIO20ChannelDuplexHandlera">ChannelDuplexHandler</a>
+              </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:3NIO8IOVectora">IOVector</a>
               </li>
@@ -382,7 +406,7 @@
 more bytes (octets).</p>
 <h3 id='allocation' class='heading'>Allocation</h3>
 
-<p>Use <code>ByteBufferAllocator.buffer(capacity: desiredCapacity)</code> to allocate a new <code>ByteBuffer</code>.</p>
+<p>Use <code>allocator.buffer(capacity: desiredCapacity)</code> to allocate a new <code>ByteBuffer</code>.</p>
 <h3 id='supported-types' class='heading'>Supported types</h3>
 
 <p>A variety of types can be read/written from/to a <code>ByteBuffer</code>. Using Swift&rsquo;s <code>extension</code> mechanism you can easily
@@ -397,17 +421,10 @@ types (non-exhaustive list):</p>
 </ul>
 <h3 id='random-access' class='heading'>Random Access</h3>
 
-<p><code>ByteBuffer</code> provides two properties which are indices into the <code>ByteBuffer</code> to support sequential access:</p>
-
-<ul>
-<li><code>readerIndex</code>, the index of the next readable byte</li>
-<li><code>writerIndex</code>, the index of the next byte to write</li>
-</ul>
-
 <p>For every supported type <code>ByteBuffer</code> usually contains two methods for random access:</p>
 
 <ol>
-<li><code>get&lt;type&gt;(at: Int, length: Int)</code> where <code>&lt;type&gt;</code> is for example <code>string</code>, <code>Data</code>, <code>bytes</code> (for <code>[UInt8]</code>)</li>
+<li><code>get&lt;type&gt;(at: Int, length: Int)</code> where <code>&lt;type&gt;</code> is for example <code>String</code>, <code>Data</code>, <code>Bytes</code> (for <code>[UInt8]</code>)</li>
 <li><code>set(&lt;type&gt;: Type, at: Int)</code></li>
 </ol>
 
@@ -420,8 +437,15 @@ types (non-exhaustive list):</p>
 <span class="k">let</span> <span class="nv">seventeen</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="n">buf</span><span class="o">.</span><span class="nf">getInteger</span><span class="p">(</span><span class="nv">at</span><span class="p">:</span> <span class="mi">11</span><span class="p">)</span>
 </code></pre>
 
-<p>If needed, <code>ByteBuffer</code> will automatically resize its storage to accomodate your <code>set</code> request.</p>
+<p>If needed, <code>ByteBuffer</code> will automatically resize its storage to accommodate your <code>set</code> request.</p>
 <h3 id='sequential-access' class='heading'>Sequential Access</h3>
+
+<p><code>ByteBuffer</code> provides two properties which are indices into the <code>ByteBuffer</code> to support sequential access:</p>
+
+<ul>
+<li><code>readerIndex</code>, the index of the next readable byte</li>
+<li><code>writerIndex</code>, the index of the next byte to write</li>
+</ul>
 
 <p>For every supported type <code>ByteBuffer</code> usually contains two methods for sequential access:</p>
 
@@ -449,7 +473,7 @@ types (non-exhaustive list):</p>
 <p>The &#39;discardable bytes&rsquo; are usually bytes that have already been read, they can however still be accessed using
 the random access methods. &lsquo;Readable bytes&rsquo; are the bytes currently available to be read using the sequential
 access interface (<code>read&lt;Type&gt;</code>/<code>write&lt;Type&gt;</code>). Getting <code>writableBytes</code> (bytes beyond the writer index) is undefined
-behaviour and might yield aribitrary bytes (<em>not</em> <code>0</code> initialised).</p>
+behaviour and might yield arbitrary bytes (<em>not</em> <code>0</code> initialised).</p>
 <h3 id='slicing' class='heading'>Slicing</h3>
 
 <p><code>ByteBuffer</code> supports slicing a <code>ByteBuffer</code> without copying the underlying storage.</p>
@@ -580,7 +604,7 @@ of bytes that have been written to this <code>ByteBuffer</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Change the capacity to at least <code>newCapacity</code> bytes.</p>
+                        <p>Change the capacity to at least <code>to</code> bytes.</p>
 
                       </div>
                       <div class="declaration">
@@ -598,7 +622,7 @@ of bytes that have been written to this <code>ByteBuffer</code>.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>newCapacity</em>
+                                <em>to</em>
                                 </code>
                               </td>
                               <td>
@@ -1061,7 +1085,7 @@ newly allocated <code>ByteBuffer</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The write index or the number of bytes previously writte to this <code>ByteBuffer</code>. <code>writerIndex</code> is <code>0</code> for a
+                        <p>The write index or the number of bytes previously written to this <code>ByteBuffer</code>. <code>writerIndex</code> is <code>0</code> for a
 newly allocated <code>ByteBuffer</code>.</p>
 
                       </div>
@@ -1556,7 +1580,7 @@ as <code>[UInt8]</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Read <code>length</code> bytes off this <code>ByteBuffer</code>, decoding it as <code>String</code> using the UTF-8 encoding. Does not move the reader index.</p>
+                        <p>Read <code>length</code> bytes off this <code>ByteBuffer</code>, decoding it as <code>String</code> using the UTF-8 encoding. Move the reader index forward by <code>length</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -2552,9 +2576,9 @@ The <code><a href="../Structs/ByteBuffer.html#/s:3NIO10ByteBufferV11readerIndexS
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3NIO10ByteBufferV5writeSix7integer_AA10EndiannessO10endiannessts17FixedWidthIntegerRzlF"></a>
-                    <a name="//apple_ref/swift/Method/write(integer:endianness:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3NIO10ByteBufferV5writeSix7integer_AA10EndiannessO10endiannessts17FixedWidthIntegerRzlF">write(integer:endianness:)</a>
+                    <a name="/s:3NIO10ByteBufferV5writeSix7integer_AA10EndiannessO10endiannessxm2asts17FixedWidthIntegerRzlF"></a>
+                    <a name="//apple_ref/swift/Method/write(integer:endianness:as:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3NIO10ByteBufferV5writeSix7integer_AA10EndiannessO10endiannessxm2asts17FixedWidthIntegerRzlF">write(integer:endianness:as:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2569,7 +2593,7 @@ The <code><a href="../Structs/ByteBuffer.html#/s:3NIO10ByteBufferV11readerIndexS
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="n">write</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">FixedWidthInteger</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">integer</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">endianness</span><span class="p">:</span> <span class="kt"><a href="../Enums/Endianness.html">Endianness</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">big</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="n">write</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">FixedWidthInteger</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">integer</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">endianness</span><span class="p">:</span> <span class="kt"><a href="../Enums/Endianness.html">Endianness</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">big</span><span class="p">,</span> <span class="nv">as</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span> <span class="o">=</span> <span class="kt">T</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -2614,9 +2638,9 @@ The <code><a href="../Structs/ByteBuffer.html#/s:3NIO10ByteBufferV11readerIndexS
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3NIO10ByteBufferV3setSix7integer_Si2atAA10EndiannessO10endiannessts17FixedWidthIntegerRzlF"></a>
-                    <a name="//apple_ref/swift/Method/set(integer:at:endianness:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3NIO10ByteBufferV3setSix7integer_Si2atAA10EndiannessO10endiannessts17FixedWidthIntegerRzlF">set(integer:at:endianness:)</a>
+                    <a name="/s:3NIO10ByteBufferV3setSix7integer_Si2atAA10EndiannessO10endiannessxm2asts17FixedWidthIntegerRzlF"></a>
+                    <a name="//apple_ref/swift/Method/set(integer:at:endianness:as:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3NIO10ByteBufferV3setSix7integer_Si2atAA10EndiannessO10endiannessxm2asts17FixedWidthIntegerRzlF">set(integer:at:endianness:as:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2631,7 +2655,7 @@ The <code><a href="../Structs/ByteBuffer.html#/s:3NIO10ByteBufferV11readerIndexS
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="k">set</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">FixedWidthInteger</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">integer</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">at</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">endianness</span><span class="p">:</span> <span class="kt"><a href="../Enums/Endianness.html">Endianness</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">big</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="k">set</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">FixedWidthInteger</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">integer</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">at</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">endianness</span><span class="p">:</span> <span class="kt"><a href="../Enums/Endianness.html">Endianness</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">big</span><span class="p">,</span> <span class="nv">as</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span> <span class="o">=</span> <span class="kt">T</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -2693,7 +2717,7 @@ The <code><a href="../Structs/ByteBuffer.html#/s:3NIO10ByteBufferV11readerIndexS
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://github.com/apple/swift-nio" target="_blank" rel="external">SwiftNIO Team</a>. All rights reserved. (Last updated: 2018-03-26)</p>
+      <p>&copy; 2018 <a class="link" href="https://github.com/apple/swift-nio" target="_blank" rel="external">SwiftNIO Team</a>. All rights reserved. (Last updated: 2018-04-11)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

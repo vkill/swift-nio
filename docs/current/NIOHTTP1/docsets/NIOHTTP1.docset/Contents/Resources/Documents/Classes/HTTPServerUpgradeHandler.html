@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           NIOHTTP1 Docs
         </a>
-         (38% documented)
+         (40% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -75,6 +75,12 @@
                 <a class="nav-group-task-link" href="../Classes/HTTPResponseEncoder.html">HTTPResponseEncoder</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/HTTPServerPipelineHandler.html">HTTPServerPipelineHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/HTTPServerProtocolErrorHandler.html">HTTPServerProtocolErrorHandler</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/HTTPServerUpgradeHandler.html">HTTPServerUpgradeHandler</a>
               </li>
             </ul>
@@ -119,6 +125,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/HTTPProtocolUpgrader.html">HTTPProtocolUpgrader</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/_DeprecateHTTPHeaderIterator.html">_DeprecateHTTPHeaderIterator</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -126,6 +135,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/HTTPHeaders.html">HTTPHeaders</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/HTTPHeaders/Iterator.html">– Iterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/HTTPRequestHead.html">HTTPRequestHead</a>
@@ -152,6 +164,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:8NIOHTTP122HTTPServerResponseParta">HTTPServerResponsePart</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:8NIOHTTP124HTTPUpgradeConfigurationa">HTTPUpgradeConfiguration</a>
               </li>
             </ul>
           </li>
@@ -277,6 +292,93 @@ the pipeline after upgrade.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:8NIOHTTP124HTTPServerUpgradeHandlerCACSayAA20HTTPProtocolUpgrader_pG9upgraders_AA19HTTPResponseEncoderC04httpI0Say3NIO07ChannelD0_pG17extraHTTPHandlersyAJ0lD7ContextCc017upgradeCompletionD0tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(upgraders:httpEncoder:extraHTTPHandlers:upgradeCompletionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8NIOHTTP124HTTPServerUpgradeHandlerCACSayAA20HTTPProtocolUpgrader_pG9upgraders_AA19HTTPResponseEncoderC04httpI0Say3NIO07ChannelD0_pG17extraHTTPHandlersyAJ0lD7ContextCc017upgradeCompletionD0tcfc">init(upgraders:httpEncoder:extraHTTPHandlers:upgradeCompletionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a <code>HTTPServerUpgradeHandler</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">upgraders</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/HTTPProtocolUpgrader.html">HTTPProtocolUpgrader</a></span><span class="p">],</span> <span class="nv">httpEncoder</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPResponseEncoder.html">HTTPResponseEncoder</a></span><span class="p">,</span> <span class="nv">extraHTTPHandlers</span><span class="p">:</span> <span class="p">[</span><span class="kt">ChannelHandler</span><span class="p">],</span> <span class="nv">upgradeCompletionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">ChannelHandlerContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>upgraders</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>All <code><a href="../Protocols/HTTPProtocolUpgrader.html">HTTPProtocolUpgrader</a></code> objects that this pipeline will be able
+to use to handle HTTP upgrade.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>httpEncoder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code><a href="../Classes/HTTPResponseEncoder.html">HTTPResponseEncoder</a></code> encoding responses from this handler and which will
+be removed from the pipeline once the upgrade response is sent. This is used to ensure
+that the pipeline will be in a clean state after upgrade.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>extraHTTPHandlers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Any other handlers that are directly related to handling HTTP. At the very least
+this should include the <code><a href="../Classes/HTTPDecoder.html">HTTPDecoder</a></code>, but should also include any other handler that cannot tolerate
+receiving non-HTTP data.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>upgradeCompletionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block that will be fired when HTTP upgrade is complete.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:3NIO22_ChannelInboundHandlerP11channelReadyAA0bD7ContextC3ctx_AA6NIOAnyV4datatF"></a>
                     <a name="//apple_ref/swift/Method/channelRead(ctx:data:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:3NIO22_ChannelInboundHandlerP11channelReadyAA0bD7ContextC3ctx_AA6NIOAnyV4datatF">channelRead(ctx:data:)</a>
@@ -308,7 +410,7 @@ the pipeline after upgrade.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://github.com/apple/swift-nio" target="_blank" rel="external">SwiftNIO Team</a>. All rights reserved. (Last updated: 2018-03-26)</p>
+      <p>&copy; 2018 <a class="link" href="https://github.com/apple/swift-nio" target="_blank" rel="external">SwiftNIO Team</a>. All rights reserved. (Last updated: 2018-04-11)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

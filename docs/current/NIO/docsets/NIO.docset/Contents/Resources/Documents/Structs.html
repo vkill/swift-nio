@@ -53,6 +53,9 @@
             <a class="nav-group-name-link" href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/AcceptBackoffHandler.html">AcceptBackoffHandler</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/BackPressureHandler.html">BackPressureHandler</a>
               </li>
               <li class="nav-group-task">
@@ -92,6 +95,9 @@
                 <a class="nav-group-task-link" href="Classes/MultiThreadedEventLoopGroup.html">MultiThreadedEventLoopGroup</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/NIONetworkInterface.html">NIONetworkInterface</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/ServerBootstrap.html">ServerBootstrap</a>
               </li>
             </ul>
@@ -116,6 +122,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/ChannelEvent.html">ChannelEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/ChannelLifecycleError.html">ChannelLifecycleError</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/ChannelPipelineError.html">ChannelPipelineError</a>
@@ -186,7 +195,16 @@
                 <a class="nav-group-task-link" href="Extensions/EmbeddedScheduledTask.html">EmbeddedScheduledTask</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/Heap.html">Heap</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Extensions/LinuxCPUSet.html">LinuxCPUSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/PriorityQueue.html">PriorityQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/PriorityQueue/Iterator.html">– Iterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Extensions/ScheduledTask.html">ScheduledTask</a>
@@ -346,6 +364,9 @@
                 <a class="nav-group-task-link" href="Structs/SingleConnectionFailure.html">SingleConnectionFailure</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/ThreadSpecificVariable.html">ThreadSpecificVariable</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/TimeAmount.html">TimeAmount</a>
               </li>
               <li class="nav-group-task">
@@ -356,6 +377,9 @@
           <li class="nav-group-name">
             <a class="nav-group-name-link" href="Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Typealiases.html#/s:3NIO20ChannelDuplexHandlera">ChannelDuplexHandler</a>
+              </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Typealiases.html#/s:3NIO8IOVectora">IOVector</a>
               </li>
@@ -433,7 +457,7 @@ it is going.</p>
 more bytes (octets).</p>
 <h3 id='allocation' class='heading'>Allocation</h3>
 
-<p>Use <code>ByteBufferAllocator.buffer(capacity: desiredCapacity)</code> to allocate a new <code>ByteBuffer</code>.</p>
+<p>Use <code>allocator.buffer(capacity: desiredCapacity)</code> to allocate a new <code>ByteBuffer</code>.</p>
 <h3 id='supported-types' class='heading'>Supported types</h3>
 
 <p>A variety of types can be read/written from/to a <code>ByteBuffer</code>. Using Swift&rsquo;s <code>extension</code> mechanism you can easily
@@ -448,17 +472,10 @@ types (non-exhaustive list):</p>
 </ul>
 <h3 id='random-access' class='heading'>Random Access</h3>
 
-<p><code>ByteBuffer</code> provides two properties which are indices into the <code>ByteBuffer</code> to support sequential access:</p>
-
-<ul>
-<li><code>readerIndex</code>, the index of the next readable byte</li>
-<li><code>writerIndex</code>, the index of the next byte to write</li>
-</ul>
-
 <p>For every supported type <code>ByteBuffer</code> usually contains two methods for random access:</p>
 
 <ol>
-<li><code>get&lt;type&gt;(at: Int, length: Int)</code> where <code>&lt;type&gt;</code> is for example <code>string</code>, <code>Data</code>, <code>bytes</code> (for <code>[UInt8]</code>)</li>
+<li><code>get&lt;type&gt;(at: Int, length: Int)</code> where <code>&lt;type&gt;</code> is for example <code>String</code>, <code>Data</code>, <code>Bytes</code> (for <code>[UInt8]</code>)</li>
 <li><code>set(&lt;type&gt;: Type, at: Int)</code></li>
 </ol>
 
@@ -471,8 +488,15 @@ types (non-exhaustive list):</p>
 <span class="k">let</span> <span class="nv">seventeen</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="n">buf</span><span class="o">.</span><span class="nf">getInteger</span><span class="p">(</span><span class="nv">at</span><span class="p">:</span> <span class="mi">11</span><span class="p">)</span>
 </code></pre>
 
-<p>If needed, <code>ByteBuffer</code> will automatically resize its storage to accomodate your <code>set</code> request.</p>
+<p>If needed, <code>ByteBuffer</code> will automatically resize its storage to accommodate your <code>set</code> request.</p>
 <h3 id='sequential-access' class='heading'>Sequential Access</h3>
+
+<p><code>ByteBuffer</code> provides two properties which are indices into the <code>ByteBuffer</code> to support sequential access:</p>
+
+<ul>
+<li><code>readerIndex</code>, the index of the next readable byte</li>
+<li><code>writerIndex</code>, the index of the next byte to write</li>
+</ul>
 
 <p>For every supported type <code>ByteBuffer</code> usually contains two methods for sequential access:</p>
 
@@ -500,7 +524,7 @@ types (non-exhaustive list):</p>
 <p>The &#39;discardable bytes&rsquo; are usually bytes that have already been read, they can however still be accessed using
 the random access methods. &lsquo;Readable bytes&rsquo; are the bytes currently available to be read using the sequential
 access interface (<code>read&lt;Type&gt;</code>/<code>write&lt;Type&gt;</code>). Getting <code>writableBytes</code> (bytes beyond the writer index) is undefined
-behaviour and might yield aribitrary bytes (<em>not</em> <code>0</code> initialised).</p>
+behaviour and might yield arbitrary bytes (<em>not</em> <code>0</code> initialised).</p>
 <h3 id='slicing' class='heading'>Slicing</h3>
 
 <p><code>ByteBuffer</code> supports slicing a <code>ByteBuffer</code> without copying the underlying storage.</p>
@@ -681,7 +705,7 @@ expansions from happening frequently. Expansions will always force an allocation
                       <div class="abstract">
                         <p>An <code>Error</code> that represents multiple errors that occurred during an operation.</p>
 
-<p>Because SwiftNIO frequently does multiple jobs at once, it is possible some operatons out
+<p>Because SwiftNIO frequently does multiple jobs at once, it is possible some operations out
 of a set of operations may fail. This is most noticeable with <code>Channel.flush</code> on the
 <code>DatagramChannel</code>, where some, but not all, of the datagram writes may fail. In this case
 the <code>flush</code> should accurately represent that set of possibilities. The <code>NIOCompositeError</code>
@@ -853,7 +877,7 @@ or <code>eventLoop.newFailedFuture(error:)</code>.</li>
 <p>Usually a <code>FileRegion</code> will allow the underlying transport to use <code>sendfile</code> to transfer its content and so allows transferring
 the file content without copying it into user-space at all. If the actual transport implementation really can make use of sendfile
 or if it will need to copy the content to user-space first and use <code>write</code> / <code>writev</code> is an implementation detail. That said
- using <code>FileRegion</code> is the recommend way to transfer file content if possible.</p>
+ using <code>FileRegion</code> is the recommended way to transfer file content if possible.</p>
 
 <p>One important note, depending your <code><a href="Classes/ChannelPipeline.html">ChannelPipeline</a></code> setup it may not be possible to use a <code>FileRegion</code> as a <code><a href="Protocols/ChannelHandler.html">ChannelHandler</a></code> may
 need access to the bytes (in a <code><a href="Structs/ByteBuffer.html">ByteBuffer</a></code>) to transform these.</p>
@@ -1176,13 +1200,54 @@ of blocking.</p>
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3NIO22ThreadSpecificVariableV"></a>
+                    <a name="//apple_ref/swift/Struct/ThreadSpecificVariable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3NIO22ThreadSpecificVariableV">ThreadSpecificVariable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code>ThreadSpecificVariable</code> is a variable that can be read and set like a normal variable except that it holds
+different variables per thread.</p>
+
+<p><code>ThreadSpecificVariable</code> is thread-safe so it can be used with multiple threads at the same time but the value
+returned by <code>currentValue</code> is defined per thread.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <code>ThreadSpecificVariable</code> has reference semantics.
+
+</div>
+
+                        <a href="Structs/ThreadSpecificVariable.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ThreadSpecificVariable</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://github.com/apple/swift-nio" target="_blank" rel="external">SwiftNIO Team</a>. All rights reserved. (Last updated: 2018-03-26)</p>
+      <p>&copy; 2018 <a class="link" href="https://github.com/apple/swift-nio" target="_blank" rel="external">SwiftNIO Team</a>. All rights reserved. (Last updated: 2018-04-11)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

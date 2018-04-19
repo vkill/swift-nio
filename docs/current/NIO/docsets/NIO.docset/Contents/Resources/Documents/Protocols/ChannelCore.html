@@ -93,6 +93,9 @@
                 <a class="nav-group-task-link" href="../Classes/IdleStateHandler.html">IdleStateHandler</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/IdleStateHandler/IdleStateEvent.html">– IdleStateEvent</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/MultiThreadedEventLoopGroup.html">MultiThreadedEventLoopGroup</a>
               </li>
               <li class="nav-group-task">
@@ -491,6 +494,52 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">register0</span><span class="p">(</span><span class="nv">promise</span><span class="p">:</span> <span class="kt"><a href="../Structs/EventLoopPromise.html">EventLoopPromise</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>promise</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code><a href="../Structs/EventLoopPromise.html">EventLoopPromise</a></code> which should be notified once the operation completes, or nil if no notification should take place.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3NIO11ChannelCoreP26registerAlreadyConfigured0yAA16EventLoopPromiseVyytGSg7promise_tF"></a>
+                    <a name="//apple_ref/swift/Method/registerAlreadyConfigured0(promise:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3NIO11ChannelCoreP26registerAlreadyConfigured0yAA16EventLoopPromiseVyytGSg7promise_tF">registerAlreadyConfigured0(promise:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Register channel as already connected or bound socket.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">registerAlreadyConfigured0</span><span class="p">(</span><span class="nv">promise</span><span class="p">:</span> <span class="kt"><a href="../Structs/EventLoopPromise.html">EventLoopPromise</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
@@ -966,13 +1015,91 @@
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3NIO11ChannelCorePAAE10unwrapDataqd__AA6NIOAnyV_qd__m2astlF"></a>
+                    <a name="//apple_ref/swift/Method/unwrapData(_:as:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3NIO11ChannelCorePAAE10unwrapDataqd__AA6NIOAnyV_qd__m2astlF">unwrapData(_:as:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unwraps the given <code><a href="../Structs/NIOAny.html">NIOAny</a></code> as a specific concrete type.</p>
+
+<p>This method is intended for use when writing custom <code>ChannelCore</code> implementations.
+This can safely be called in methods like <code>write0</code> to extract data from the <code><a href="../Structs/NIOAny.html">NIOAny</a></code>
+provided in those cases.</p>
+
+<p>Note that if the unwrap fails, this will cause a runtime trap. <code>ChannelCore</code>
+implementations should be concrete about what types they support writing. If multiple
+types are supported, considere using a tagged union to store the type information like
+NIO&rsquo;s own <code><a href="../Enums/IOData.html">IOData</a></code>, which will minimise the amount of runtime type checking.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">unwrapData</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">data</span><span class="p">:</span> <span class="kt"><a href="../Structs/NIOAny.html">NIOAny</a></span><span class="p">,</span> <span class="nv">as</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span> <span class="o">=</span> <span class="kt">T</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">T</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code><a href="../Structs/NIOAny.html">NIOAny</a></code> to unwrap.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>as</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The type to extract from the <code><a href="../Structs/NIOAny.html">NIOAny</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The content of the <code><a href="../Structs/NIOAny.html">NIOAny</a></code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://github.com/apple/swift-nio" target="_blank" rel="external">SwiftNIO Team</a>. All rights reserved. (Last updated: 2018-04-11)</p>
+      <p>&copy; 2018 <a class="link" href="https://github.com/apple/swift-nio" target="_blank" rel="external">SwiftNIO Team</a>. All rights reserved. (Last updated: 2018-04-19)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

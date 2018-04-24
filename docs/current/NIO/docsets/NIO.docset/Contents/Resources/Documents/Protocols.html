@@ -14,6 +14,7 @@
   </head>
   <body>
 
+    <a name="//apple_ref/swift/Section/Protocols" class="dashAnchor"></a>
 
     <a title="Protocols  Reference"></a>
 
@@ -428,7 +429,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContiguousCollection</span><span class="p">:</span> <span class="kt">Collection</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContiguousCollection</span> <span class="p">:</span> <span class="kt">Collection</span></code></pre>
 
                         </div>
                       </div>
@@ -465,7 +466,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ChannelCore</span><span class="p">:</span> <span class="kd">class</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ChannelCore</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
 
                         </div>
                       </div>
@@ -505,7 +506,7 @@ passed to or returned by the operations are used to retrieve the result of an op
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Channel</span><span class="p">:</span> <span class="kd">class</span><span class="p">,</span> <span class="kt"><a href="Protocols/ChannelOutboundInvoker.html">ChannelOutboundInvoker</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Channel</span> <span class="p">:</span> <span class="kt">AnyObject</span><span class="p">,</span> <span class="kt"><a href="Protocols/ChannelOutboundInvoker.html">ChannelOutboundInvoker</a></span></code></pre>
 
                         </div>
                       </div>
@@ -537,7 +538,7 @@ passed to or returned by the operations are used to retrieve the result of an op
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ChannelHandler</span><span class="p">:</span> <span class="kd">class</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ChannelHandler</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
 
                         </div>
                       </div>
@@ -572,7 +573,7 @@ the channel source</q>) and <code>bind</code> (<q>please bind the following addr
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="nv">_ChannelOutboundHandler</span><span class="p">:</span> <span class="kt"><a href="Protocols/ChannelHandler.html">ChannelHandler</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="nv">_ChannelOutboundHandler</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ChannelHandler.html">ChannelHandler</a></span></code></pre>
 
                         </div>
                       </div>
@@ -607,7 +608,7 @@ channel source tells you about. This includes things like <code>channelRead</cod
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="nv">_ChannelInboundHandler</span><span class="p">:</span> <span class="kt"><a href="Protocols/ChannelHandler.html">ChannelHandler</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="nv">_ChannelInboundHandler</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ChannelHandler.html">ChannelHandler</a></span></code></pre>
 
                         </div>
                       </div>
@@ -695,7 +696,7 @@ it will finally be executed by the the <code><a href="Protocols/ChannelCore.html
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ChannelInvoker</span><span class="p">:</span> <span class="kt"><a href="Protocols/ChannelOutboundInvoker.html">ChannelOutboundInvoker</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/ChannelInboundInvoker.html">ChannelInboundInvoker</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ChannelInvoker</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ChannelOutboundInvoker.html">ChannelOutboundInvoker</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/ChannelInboundInvoker.html">ChannelInboundInvoker</a></span></code></pre>
 
                         </div>
                       </div>
@@ -762,7 +763,7 @@ trivially able to implement this protocol.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">AppendableCollection</span><span class="p">:</span> <span class="kt">Collection</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">AppendableCollection</span> <span class="p">:</span> <span class="kt">Collection</span></code></pre>
 
                         </div>
                       </div>
@@ -809,7 +810,7 @@ If you still need those bytes to come back, consider taking a local copy of buff
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ByteToMessageDecoder</span><span class="p">:</span> <span class="kt"><a href="Protocols/ChannelInboundHandler.html">ChannelInboundHandler</a></span> <span class="k">where</span> <span class="kt">InboundIn</span> <span class="o">==</span> <span class="kt"><a href="Structs/ByteBuffer.html">ByteBuffer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ByteToMessageDecoder</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ChannelInboundHandler.html">ChannelInboundHandler</a></span> <span class="k">where</span> <span class="k">Self</span><span class="o">.</span><span class="kt">InboundIn</span> <span class="o">==</span> <span class="kt"><a href="Structs/ByteBuffer.html">ByteBuffer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -837,7 +838,7 @@ If you still need those bytes to come back, consider taking a local copy of buff
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MessageToByteEncoder</span><span class="p">:</span> <span class="kt"><a href="Protocols/ChannelOutboundHandler.html">ChannelOutboundHandler</a></span> <span class="k">where</span> <span class="kt">OutboundOut</span> <span class="o">==</span> <span class="kt"><a href="Structs/ByteBuffer.html">ByteBuffer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MessageToByteEncoder</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ChannelOutboundHandler.html">ChannelOutboundHandler</a></span> <span class="k">where</span> <span class="k">Self</span><span class="o">.</span><span class="kt">OutboundOut</span> <span class="o">==</span> <span class="kt"><a href="Structs/ByteBuffer.html">ByteBuffer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -892,7 +893,7 @@ effect as blocking in this case.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">EventLoop</span><span class="p">:</span> <span class="kt"><a href="Protocols/EventLoopGroup.html">EventLoopGroup</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">EventLoop</span> <span class="p">:</span> <span class="kt"><a href="Protocols/EventLoopGroup.html">EventLoopGroup</a></span></code></pre>
 
                         </div>
                       </div>
@@ -920,7 +921,7 @@ effect as blocking in this case.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">EventLoopGroup</span><span class="p">:</span> <span class="kd">class</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">EventLoopGroup</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
 
                         </div>
                       </div>
@@ -1087,7 +1088,7 @@ resolver will need also to implement these sorting rules.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ChannelInboundHandler</span><span class="p">:</span> <span class="n"><a href="Protocols/_ChannelInboundHandler.html">_ChannelInboundHandler</a></span><span class="p">,</span> <span class="n"><a href="Protocols/_EmittingChannelHandler.html">_EmittingChannelHandler</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ChannelInboundHandler</span> <span class="p">:</span> <span class="n"><a href="Protocols/_ChannelInboundHandler.html">_ChannelInboundHandler</a></span><span class="p">,</span> <span class="n"><a href="Protocols/_EmittingChannelHandler.html">_EmittingChannelHandler</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1117,7 +1118,7 @@ resolver will need also to implement these sorting rules.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ChannelOutboundHandler</span><span class="p">:</span> <span class="n"><a href="Protocols/_ChannelOutboundHandler.html">_ChannelOutboundHandler</a></span><span class="p">,</span> <span class="n"><a href="Protocols/_EmittingChannelHandler.html">_EmittingChannelHandler</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ChannelOutboundHandler</span> <span class="p">:</span> <span class="n"><a href="Protocols/_ChannelOutboundHandler.html">_ChannelOutboundHandler</a></span><span class="p">,</span> <span class="n"><a href="Protocols/_EmittingChannelHandler.html">_EmittingChannelHandler</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1132,8 +1133,8 @@ resolver will need also to implement these sorting rules.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://github.com/apple/swift-nio" target="_blank" rel="external">SwiftNIO Team</a>. All rights reserved. (Last updated: 2018-04-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2018 <a class="link" href="https://github.com/apple/swift-nio" target="_blank" rel="external">SwiftNIO Team</a>. All rights reserved. (Last updated: 2018-04-24)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

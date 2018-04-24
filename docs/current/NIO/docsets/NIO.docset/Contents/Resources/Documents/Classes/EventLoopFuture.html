@@ -532,13 +532,6 @@ should be considered a code smell worth investigating: the <code><a href="../Pro
         <section class="section">
           <div class="section-content">
             <div class="task-group">
-              <div class="task-name-container">
-                <a name="/TODO:%20Provide%20a%20tracing%20facility.%20%20It%20would%20be%20nice%20to%20be%20able%20to%20set%20&#39;.debugTrace%20=%20true&#39;%20on%20any%20EventLoopFuture%20or%20EventLoopPromise%20and%20have%20every%20subsequent%20chained%20EventLoopFuture%20report%20the%20success%20result%20or%20failure%20error.%20%20That%20would%20simplify%20some%20debugging%20scenarios."></a>
-                <a name="//apple_ref/swift/Section/TODO: Provide a tracing facility.  It would be nice to be able to set &#39;.debugTrace = true&#39; on any EventLoopFuture or EventLoopPromise and have every subsequent chained EventLoopFuture report the success result or failure error.  That would simplify some debugging scenarios." class="dashAnchor"></a>
-                <a href="#/TODO:%20Provide%20a%20tracing%20facility.%20%20It%20would%20be%20nice%20to%20be%20able%20to%20set%20&#39;.debugTrace%20=%20true&#39;%20on%20any%20EventLoopFuture%20or%20EventLoopPromise%20and%20have%20every%20subsequent%20chained%20EventLoopFuture%20report%20the%20success%20result%20or%20failure%20error.%20%20That%20would%20simplify%20some%20debugging%20scenarios.">
-                  <h3 class="section-name">TODO: Provide a tracing facility.  It would be nice to be able to set &#39;.debugTrace = true&#39; on any EventLoopFuture or EventLoopPromise and have every subsequent chained EventLoopFuture report the success result or failure error.  That would simplify some debugging scenarios.</h3>
-                </a>
-              </div>
               <ul class="item-container">
                 <li class="item">
                   <div>
@@ -1150,7 +1143,7 @@ the first error encountered.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">and</span><span class="o">&lt;</span><span class="kt">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">U</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span> <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="p">(</span><span class="kt">T</span><span class="p">,</span><span class="kt">U</span><span class="p">)</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">and</span><span class="o">&lt;</span><span class="kt">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">U</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span> <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="p">(</span><span class="kt">T</span><span class="p">,</span> <span class="kt">U</span><span class="p">)</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1178,7 +1171,7 @@ This is just syntactic sugar for <code>future.and(loop.newSucceedFuture&lt;U&gt;
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">and</span><span class="o">&lt;</span><span class="kt">U</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">result</span><span class="p">:</span> <span class="kt">U</span><span class="p">,</span> <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span> <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="p">(</span><span class="kt">T</span><span class="p">,</span><span class="kt">U</span><span class="p">)</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">and</span><span class="o">&lt;</span><span class="kt">U</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">result</span><span class="p">:</span> <span class="kt">U</span><span class="p">,</span> <span class="nv">file</span><span class="p">:</span> <span class="kt">StaticString</span> <span class="o">=</span> <span class="kd">#file</span><span class="p">,</span> <span class="nv">line</span><span class="p">:</span> <span class="kt">UInt</span> <span class="o">=</span> <span class="kd">#line</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="p">(</span><span class="kt">T</span><span class="p">,</span> <span class="kt">U</span><span class="p">)</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1694,8 +1687,8 @@ a failure is encountered, it will immediately fail the overall <code>EventLoopFu
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://github.com/apple/swift-nio" target="_blank" rel="external">SwiftNIO Team</a>. All rights reserved. (Last updated: 2018-04-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2018 <a class="link" href="https://github.com/apple/swift-nio" target="_blank" rel="external">SwiftNIO Team</a>. All rights reserved. (Last updated: 2018-04-24)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

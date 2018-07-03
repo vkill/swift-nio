@@ -23,7 +23,7 @@
         <a class="header-link" href="index.html">
           NIO Docs
         </a>
-         (89% documented)
+         (90% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -93,9 +93,6 @@
                 <a class="nav-group-task-link" href="Classes/IdleStateHandler.html">IdleStateHandler</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/IdleStateHandler/IdleStateEvent.html">– IdleStateEvent</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/MultiThreadedEventLoopGroup.html">MultiThreadedEventLoopGroup</a>
               </li>
               <li class="nav-group-task">
@@ -126,9 +123,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/ChannelEvent.html">ChannelEvent</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums/ChannelLifecycleError.html">ChannelLifecycleError</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/ChannelPipelineError.html">ChannelPipelineError</a>
@@ -199,19 +193,7 @@
                 <a class="nav-group-task-link" href="Extensions/EmbeddedScheduledTask.html">EmbeddedScheduledTask</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Extensions/FixedWidthInteger.html">FixedWidthInteger</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Extensions/Heap.html">Heap</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Extensions/LinuxCPUSet.html">LinuxCPUSet</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Extensions/PriorityQueue.html">PriorityQueue</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Extensions/PriorityQueue/Iterator.html">– Iterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Extensions/ScheduledTask.html">ScheduledTask</a>
@@ -224,6 +206,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Extensions/UInt32.html">UInt32</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/UInt64.html">UInt64</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Extensions/UnsafeBufferPointer.html">UnsafeBufferPointer</a>
@@ -323,13 +308,7 @@
                 <a class="nav-group-task-link" href="Structs/ByteBufferAllocator.html">ByteBufferAllocator</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Structs/ByteBufferView.html">ByteBufferView</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/ChannelOptions.html">ChannelOptions</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Structs/ChannelShouldQuiesceEvent.html">ChannelShouldQuiesceEvent</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/CircularBuffer.html">CircularBuffer</a>
@@ -810,15 +789,6 @@ is not always the case. Use <code>buffer.getInteger(at: buffer.readerIndex)</cod
 that you no longer need to see those bytes again as they will not be returned to you the next time <code>decode</code> is called.
 If you still need those bytes to come back, consider taking a local copy of buffer inside the function to perform your read operations on.</p>
 
-<p>The <code><a href="Structs/ByteBuffer.html">ByteBuffer</a></code> passed in as <code>buffer</code> is a slice of a larger buffer owned by the <code>ByteToMessageDecoder</code> implementation. Some aspects of this buffer are preserved across calls to <code>decode</code>, meaning that any changes to those properties you make in your <code>decode</code> method will be reflected in the next call to decode. In particular, the following operations are have the described effects:</p>
-
-<ol>
-<li>Moving the reader index forward persists across calls. When your method returns, if the reader index has advanced, those bytes are considered <q>consumed</q> and will not be available in future calls to <code>decode</code>.
-Please note, however, that the numerical value of the <code>readerIndex</code> itself is not preserved, and may not be the same from one call to the next. Please do not rely on this numerical value: if you need
-to recall where a byte is relative to the <code>readerIndex</code>, use an offset rather than an absolute value.</li>
-<li>Mutating the bytes in the buffer will cause undefined behaviour and likely crash your program</li>
-</ol>
-
                         <a href="Protocols/ByteToMessageDecoder.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
@@ -1148,7 +1118,7 @@ resolver will need also to implement these sorting rules.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://github.com/apple/swift-nio" target="_blank" rel="external">SwiftNIO Team</a>. All rights reserved. (Last updated: 2018-05-31)</p>
+      <p>&copy; 2018 <a class="link" href="https://github.com/apple/swift-nio" target="_blank" rel="external">SwiftNIO Team</a>. All rights reserved. (Last updated: 2018-07-03)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

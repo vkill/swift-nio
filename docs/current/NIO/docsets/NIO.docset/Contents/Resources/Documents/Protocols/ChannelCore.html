@@ -326,9 +326,6 @@
                 <a class="nav-group-task-link" href="../Structs/ChannelOptions.html">ChannelOptions</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/ChannelShouldQuiesceEvent.html">ChannelShouldQuiesceEvent</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/CircularBuffer.html">CircularBuffer</a>
               </li>
               <li class="nav-group-task">
@@ -1091,60 +1088,6 @@ NIO&rsquo;s own <code><a href="../Enums/IOData.html">IOData</a></code>, which wi
                       <div>
                         <h4>Return Value</h4>
                         <p>The content of the <code><a href="../Structs/NIOAny.html">NIOAny</a></code>.</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:3NIO11ChannelCorePAAE14removeHandlersyAA0B0_p7channel_tF"></a>
-                    <a name="//apple_ref/swift/Method/removeHandlers(channel:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3NIO11ChannelCorePAAE14removeHandlersyAA0B0_p7channel_tF">removeHandlers(channel:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Removes the <code><a href="../Protocols/ChannelHandler.html">ChannelHandler</a></code>s from the <code><a href="../Classes/ChannelPipeline.html">ChannelPipeline</a></code> belonging to <code>channel</code>, and
-closes that <code><a href="../Classes/ChannelPipeline.html">ChannelPipeline</a></code>.</p>
-
-<p>This method is intended for use when writing custom <code>ChannelCore</code> implementations.
-This can be called from <code>close0</code> to tear down the <code><a href="../Classes/ChannelPipeline.html">ChannelPipeline</a></code> when closure is
-complete.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">removeHandlers</span><span class="p">(</span><span class="nv">channel</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Channel.html">Channel</a></span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>channel</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code><a href="../Protocols/Channel.html">Channel</a></code> whose <code><a href="../Classes/ChannelPipeline.html">ChannelPipeline</a></code> will be closed.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>

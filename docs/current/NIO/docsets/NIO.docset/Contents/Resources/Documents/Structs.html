@@ -326,9 +326,6 @@
                 <a class="nav-group-task-link" href="Structs/ChannelOptions.html">ChannelOptions</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Structs/ChannelShouldQuiesceEvent.html">ChannelShouldQuiesceEvent</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/CircularBuffer.html">CircularBuffer</a>
               </li>
               <li class="nav-group-task">
@@ -593,42 +590,6 @@ account, and ensuring that you have previously written into the area covered by 
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ByteBufferAllocator</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:3NIO25ChannelShouldQuiesceEventV"></a>
-                    <a name="//apple_ref/swift/Struct/ChannelShouldQuiesceEvent" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3NIO25ChannelShouldQuiesceEventV">ChannelShouldQuiesceEvent</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A <code><a href="Protocols/Channel.html">Channel</a></code> user event that is sent when the <code><a href="Protocols/Channel.html">Channel</a></code> has been asked to quiesce.</p>
-
-<p>The action(s) that should be taken after receiving this event are both application and protocol dependent. If the
-protocol supports a notion of requests and responses, it might make sense to stop accepting new requests but finish
-processing the request currently in flight.</p>
-
-                        <a href="Structs/ChannelShouldQuiesceEvent.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ChannelShouldQuiesceEvent</span></code></pre>
 
                         </div>
                       </div>

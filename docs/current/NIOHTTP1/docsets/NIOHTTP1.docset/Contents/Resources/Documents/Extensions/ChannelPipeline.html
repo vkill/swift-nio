@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           NIOHTTP1 Docs
         </a>
-         (41% documented)
+         (43% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -78,6 +78,9 @@
                 <a class="nav-group-task-link" href="../Classes/HTTPServerPipelineHandler.html">HTTPServerPipelineHandler</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/HTTPServerProtocolErrorHandler.html">HTTPServerProtocolErrorHandler</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/HTTPServerUpgradeHandler.html">HTTPServerUpgradeHandler</a>
               </li>
             </ul>
@@ -121,6 +124,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/HTTPProtocolUpgrader.html">HTTPProtocolUpgrader</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/_DeprecateHTTPHeaderIterator.html">_DeprecateHTTPHeaderIterator</a>
               </li>
             </ul>
           </li>
@@ -372,9 +378,9 @@ have none of the handlers added by this function in it.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:3NIO15ChannelPipelineC8NIOHTTP1E019configureHTTPServerC0AA15EventLoopFutureCyytGSb5first_Sb24withPipeliningAssistanceSayAD20HTTPProtocolUpgrader_pG9upgraders_yAA0B14HandlerContextCc010completionQ0tSg0K13ServerUpgradetF"></a>
-                    <a name="//apple_ref/swift/Method/configureHTTPServerPipeline(first:withPipeliningAssistance:withServerUpgrade:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3NIO15ChannelPipelineC8NIOHTTP1E019configureHTTPServerC0AA15EventLoopFutureCyytGSb5first_Sb24withPipeliningAssistanceSayAD20HTTPProtocolUpgrader_pG9upgraders_yAA0B14HandlerContextCc010completionQ0tSg0K13ServerUpgradetF">configureHTTPServerPipeline(first:withPipeliningAssistance:withServerUpgrade:)</a>
+                    <a name="/s:3NIO15ChannelPipelineC8NIOHTTP1E019configureHTTPServerC0AA15EventLoopFutureCyytGSb5first_Sb24withPipeliningAssistanceSayAD20HTTPProtocolUpgrader_pG9upgraders_yAA0B14HandlerContextCc010completionQ0tSg0K13ServerUpgradeSb0K13ErrorHandlingtF"></a>
+                    <a name="//apple_ref/swift/Method/configureHTTPServerPipeline(first:withPipeliningAssistance:withServerUpgrade:withErrorHandling:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3NIO15ChannelPipelineC8NIOHTTP1E019configureHTTPServerC0AA15EventLoopFutureCyytGSb5first_Sb24withPipeliningAssistanceSayAD20HTTPProtocolUpgrader_pG9upgraders_yAA0B14HandlerContextCc010completionQ0tSg0K13ServerUpgradeSb0K13ErrorHandlingtF">configureHTTPServerPipeline(first:withPipeliningAssistance:withServerUpgrade:withErrorHandling:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -403,7 +409,8 @@ features.</p>
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">configureHTTPServerPipeline</span><span class="p">(</span><span class="nv">first</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
                                         <span class="n">withPipeliningAssistance</span> <span class="nv">pipelining</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
-                                        <span class="n">withServerUpgrade</span> <span class="nv">upgrade</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:8NIOHTTP124HTTPUpgradeConfigurationa">HTTPUpgradeConfiguration</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                                        <span class="n">withServerUpgrade</span> <span class="nv">upgrade</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:8NIOHTTP124HTTPUpgradeConfigurationa">HTTPUpgradeConfiguration</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                                        <span class="n">withErrorHandling</span> <span class="nv">errorHandling</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">EventLoopFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -451,6 +458,20 @@ HTTP upgrade. Defaults to <code>nil</code>, which will not add the handler to th
 provided should be a tuple of an array of <code><a href="../Protocols/HTTPProtocolUpgrader.html">HTTPProtocolUpgrader</a></code> and the upgrade
 completion handler. See the documentation on <code><a href="../Classes/HTTPServerUpgradeHandler.html">HTTPServerUpgradeHandler</a></code> for more
 details.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>errorHandling</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Whether to provide assistance handling protocol errors (e.g.
+failure to parse the HTTP request) by sending 400 errors. Defaults to <code>false</code> for
+backward-compatibility reasons.</p>
                                 </div>
                               </td>
                             </tr>

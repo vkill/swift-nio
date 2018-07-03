@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           NIO Docs
         </a>
-         (90% documented)
+         (89% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -93,6 +93,9 @@
                 <a class="nav-group-task-link" href="../Classes/IdleStateHandler.html">IdleStateHandler</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/IdleStateHandler/IdleStateEvent.html">– IdleStateEvent</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/MultiThreadedEventLoopGroup.html">MultiThreadedEventLoopGroup</a>
               </li>
               <li class="nav-group-task">
@@ -123,6 +126,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/ChannelEvent.html">ChannelEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/ChannelLifecycleError.html">ChannelLifecycleError</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/ChannelPipelineError.html">ChannelPipelineError</a>
@@ -193,7 +199,16 @@
                 <a class="nav-group-task-link" href="../Extensions/EmbeddedScheduledTask.html">EmbeddedScheduledTask</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/Heap.html">Heap</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/LinuxCPUSet.html">LinuxCPUSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/PriorityQueue.html">PriorityQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/PriorityQueue/Iterator.html">– Iterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/ScheduledTask.html">ScheduledTask</a>
@@ -392,7 +407,12 @@
               </div>
             <p>Untyped <code><a href="../Protocols/ChannelHandler.html">ChannelHandler</a></code> which handles outbound I/O events or intercept an outbound I/O operation.</p>
 
-<p>We <em>strongly</em> advice against implementing this protocol directly. Please implement <code><a href="../Protocols/ChannelOutboundHandler.html">ChannelOutboundHandler</a></code>.</p>
+<p>Despite the fact that <code>write</code> is one of the methods on this <code>protocol</code>, you should avoid assuming that <q>outbound</q> events are to do with
+writing to channel sources. Instead, <q>outbound</q> events are events that are passed <em>to</em> the channel source (e.g. a socket): that is, things you tell
+the channel source to do. That includes <code>write</code> (<q>write this data to the channel source</q>), but it also includes <code>read</code> (<q>please begin attempting to read from
+the channel source</q>) and <code>bind</code> (<q>please bind the following address</q>), which have nothing to do with sending data.</p>
+
+<p>We <em>strongly</em> advise against implementing this protocol directly. Please implement <code><a href="../Protocols/ChannelOutboundHandler.html">ChannelOutboundHandler</a></code>.</p>
 
           </div>
         </section>

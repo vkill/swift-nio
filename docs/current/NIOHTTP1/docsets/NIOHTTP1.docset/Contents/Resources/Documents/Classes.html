@@ -23,7 +23,7 @@
         <a class="header-link" href="index.html">
           NIOHTTP1 Docs
         </a>
-         (41% documented)
+         (43% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -78,6 +78,9 @@
                 <a class="nav-group-task-link" href="Classes/HTTPServerPipelineHandler.html">HTTPServerPipelineHandler</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/HTTPServerProtocolErrorHandler.html">HTTPServerProtocolErrorHandler</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/HTTPServerUpgradeHandler.html">HTTPServerUpgradeHandler</a>
               </li>
             </ul>
@@ -121,6 +124,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/HTTPProtocolUpgrader.html">HTTPProtocolUpgrader</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/_DeprecateHTTPHeaderIterator.html">_DeprecateHTTPHeaderIterator</a>
               </li>
             </ul>
           </li>
@@ -446,6 +452,44 @@ immediately, allowing this signal to be seen by the HTTP server as early as poss
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">HTTPServerPipelineHandler</span> <span class="p">:</span> <span class="kt">ChannelDuplexHandler</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8NIOHTTP130HTTPServerProtocolErrorHandlerC"></a>
+                    <a name="//apple_ref/swift/Class/HTTPServerProtocolErrorHandler" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8NIOHTTP130HTTPServerProtocolErrorHandlerC">HTTPServerProtocolErrorHandler</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A simple channel handler that catches errors emitted by parsing HTTP requests
+and sends 400 Bad Request responses.</p>
+
+<p>This channel handler provides the basic behaviour that the majority of simple HTTP
+servers want. This handler does not suppress the parser errors: it allows them to
+continue to pass through the pipeline so that other handlers (e.g. logging ones) can
+deal with the error.</p>
+
+                        <a href="Classes/HTTPServerProtocolErrorHandler.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">HTTPServerProtocolErrorHandler</span> <span class="p">:</span> <span class="kt">ChannelDuplexHandler</span></code></pre>
 
                         </div>
                       </div>

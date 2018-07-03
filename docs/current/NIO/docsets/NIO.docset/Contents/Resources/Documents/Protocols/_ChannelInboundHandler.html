@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           NIO Docs
         </a>
-         (90% documented)
+         (89% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -93,6 +93,9 @@
                 <a class="nav-group-task-link" href="../Classes/IdleStateHandler.html">IdleStateHandler</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/IdleStateHandler/IdleStateEvent.html">– IdleStateEvent</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/MultiThreadedEventLoopGroup.html">MultiThreadedEventLoopGroup</a>
               </li>
               <li class="nav-group-task">
@@ -123,6 +126,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/ChannelEvent.html">ChannelEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/ChannelLifecycleError.html">ChannelLifecycleError</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/ChannelPipelineError.html">ChannelPipelineError</a>
@@ -193,7 +199,16 @@
                 <a class="nav-group-task-link" href="../Extensions/EmbeddedScheduledTask.html">EmbeddedScheduledTask</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/Heap.html">Heap</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/LinuxCPUSet.html">LinuxCPUSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/PriorityQueue.html">PriorityQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/PriorityQueue/Iterator.html">– Iterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/ScheduledTask.html">ScheduledTask</a>
@@ -392,7 +407,12 @@
               </div>
             <p>Untyped <code><a href="../Protocols/ChannelHandler.html">ChannelHandler</a></code> which handles inbound I/O events.</p>
 
-<p>We <em>strongly</em> advice against implementing this protocol directly. Please implement <code><a href="../Protocols/ChannelInboundHandler.html">ChannelInboundHandler</a></code>.</p>
+<p>Despite the fact that <code>channelRead</code> is one of the methods on this <code>protocol</code>, you should avoid assuming that <q>inbound</q> events are to do with
+reading from channel sources. Instead, <q>inbound</q> events are events that originate <em>from</em> the channel source (e.g. the socket): that is, events that the
+channel source tells you about. This includes things like <code>channelRead</code> (<q>there is some data to read</q>), but it also includes things like
+<code>channelWritabilityChanged</code> (<q>this source is no longer marked writable</q>).</p>
+
+<p>We <em>strongly</em> advise against implementing this protocol directly. Please implement <code><a href="../Protocols/ChannelInboundHandler.html">ChannelInboundHandler</a></code>.</p>
 
           </div>
         </section>

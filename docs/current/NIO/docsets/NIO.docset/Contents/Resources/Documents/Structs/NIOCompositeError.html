@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           NIO Docs
         </a>
-         (90% documented)
+         (89% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -93,6 +93,9 @@
                 <a class="nav-group-task-link" href="../Classes/IdleStateHandler.html">IdleStateHandler</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/IdleStateHandler/IdleStateEvent.html">– IdleStateEvent</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/MultiThreadedEventLoopGroup.html">MultiThreadedEventLoopGroup</a>
               </li>
               <li class="nav-group-task">
@@ -123,6 +126,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/ChannelEvent.html">ChannelEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/ChannelLifecycleError.html">ChannelLifecycleError</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/ChannelPipelineError.html">ChannelPipelineError</a>
@@ -193,7 +199,16 @@
                 <a class="nav-group-task-link" href="../Extensions/EmbeddedScheduledTask.html">EmbeddedScheduledTask</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/Heap.html">Heap</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/LinuxCPUSet.html">LinuxCPUSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/PriorityQueue.html">PriorityQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/PriorityQueue/Iterator.html">– Iterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/ScheduledTask.html">ScheduledTask</a>
@@ -392,7 +407,7 @@
               </div>
             <p>An <code>Error</code> that represents multiple errors that occurred during an operation.</p>
 
-<p>Because SwiftNIO frequently does multiple jobs at once, it is possible some operatons out
+<p>Because SwiftNIO frequently does multiple jobs at once, it is possible some operations out
 of a set of operations may fail. This is most noticeable with <code>Channel.flush</code> on the
 <code>DatagramChannel</code>, where some, but not all, of the datagram writes may fail. In this case
 the <code>flush</code> should accurately represent that set of possibilities. The <code>NIOCompositeError</code>

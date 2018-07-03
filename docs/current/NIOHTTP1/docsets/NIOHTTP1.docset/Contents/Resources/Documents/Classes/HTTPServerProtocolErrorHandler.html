@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           NIOHTTP1 Docs
         </a>
-         (43% documented)
+         (41% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -179,7 +179,7 @@
             <h1>HTTPServerProtocolErrorHandler</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">HTTPServerProtocolErrorHandler</span> <span class="p">:</span> <span class="kt">ChannelDuplexHandler</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">HTTPServerProtocolErrorHandler</span> <span class="p">:</span> <span class="kt">ChannelInboundHandler</span></code></pre>
 
                 </div>
               </div>
@@ -218,32 +218,6 @@ deal with the error.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">errorCaught</span><span class="p">(</span><span class="nv">ctx</span><span class="p">:</span> <span class="kt">ChannelHandlerContext</span><span class="p">,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:3NIO23_ChannelOutboundHandlerP5writeyAA0bD7ContextC3ctx_AA6NIOAnyV4dataAA16EventLoopPromiseVyytGSg7promisetF"></a>
-                    <a name="//apple_ref/swift/Method/write(ctx:data:promise:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3NIO23_ChannelOutboundHandlerP5writeyAA0bD7ContextC3ctx_AA6NIOAnyV4dataAA16EventLoopPromiseVyytGSg7promisetF">write(ctx:data:promise:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="nv">ctx</span><span class="p">:</span> <span class="kt">ChannelHandlerContext</span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">NIOAny</span><span class="p">,</span> <span class="nv">promise</span><span class="p">:</span> <span class="kt">EventLoopPromise</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>

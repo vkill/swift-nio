@@ -93,9 +93,6 @@
                 <a class="nav-group-task-link" href="../Classes/IdleStateHandler.html">IdleStateHandler</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/IdleStateHandler/IdleStateEvent.html">– IdleStateEvent</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/MultiThreadedEventLoopGroup.html">MultiThreadedEventLoopGroup</a>
               </li>
               <li class="nav-group-task">
@@ -541,11 +538,6 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Submit a <code><a href="../Classes/BlockingIOThreadPool.html#/s:3NIO20BlockingIOThreadPoolC8WorkItema">WorkItem</a></code> to process.</p>
-<div class="aside aside-note">
-    <p class="aside-title">Note</p>
-    <p>This is a low-level method, in most cases the <code>runIfActive</code> method should be used.</p>
-
-</div>
 
                       </div>
                       <div class="declaration">
@@ -647,73 +639,6 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">start</span><span class="p">()</span></code></pre>
 
                         </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:3NIO20BlockingIOThreadPoolC11runIfActiveAA15EventLoopFutureCyxGAA0hI0_p05eventI0_xyKctlF"></a>
-                    <a name="//apple_ref/swift/Method/runIfActive(eventLoop:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3NIO20BlockingIOThreadPoolC11runIfActiveAA15EventLoopFutureCyxGAA0hI0_p05eventI0_xyKctlF">runIfActive(eventLoop:_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Runs the submitted closure if the thread pool is still active, otherwise fails the promise.
-The closure will be run on the thread pool so can do blocking work.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">runIfActive</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">eventLoop</span><span class="p">:</span> <span class="kt"><a href="../Protocols/EventLoop.html">EventLoop</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/EventLoopFuture.html">EventLoopFuture</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>eventLoop</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code><a href="../Protocols/EventLoop.html">EventLoop</a></code> the returned <code><a href="../Classes/EventLoopFuture.html">EventLoopFuture</a></code> will fire on.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>body</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The closure which performs some blocking work to be done on the thread pool.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>The <code><a href="../Classes/EventLoopFuture.html">EventLoopFuture</a></code> of <code>promise</code> fulfilled with the result (or error) of the passed closure.</p>
                       </div>
                     </section>
                   </div>

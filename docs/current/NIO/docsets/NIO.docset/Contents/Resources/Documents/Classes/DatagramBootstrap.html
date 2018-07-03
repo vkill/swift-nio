@@ -410,8 +410,6 @@ and servers.</p>
     <span class="k">try</span> <span class="n">channel</span><span class="o">.</span><span class="n">closeFuture</span><span class="o">.</span><span class="nf">wait</span><span class="p">()</span>  <span class="c1">// Wait until the channel un-binds.</span>
 </code></pre>
 
-<p>The <code>DatagramChannel</code> will operate on <code><a href="../Structs/AddressedEnvelope.html">AddressedEnvelope&lt;ByteBuffer&gt;</a></code> as inbound and outbound messages.</p>
-
           </div>
         </section>
 
@@ -486,7 +484,7 @@ and servers.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">channelInitializer</span><span class="p">(</span><span class="n">_</span> <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Protocols/Channel.html">Channel</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/EventLoopFuture.html">EventLoopFuture</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">channelInitializer</span><span class="p">(</span><span class="n">_</span> <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Protocols/Channel.html">Channel</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/EventLoopFuture.html">EventLoopFuture</a></span><span class="o">&lt;</span><span class="p">()</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>

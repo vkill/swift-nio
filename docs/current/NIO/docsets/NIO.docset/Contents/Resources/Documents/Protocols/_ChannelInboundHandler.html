@@ -392,12 +392,7 @@
               </div>
             <p>Untyped <code><a href="../Protocols/ChannelHandler.html">ChannelHandler</a></code> which handles inbound I/O events.</p>
 
-<p>Despite the fact that <code>channelRead</code> is one of the methods on this <code>protocol</code>, you should avoid assuming that <q>inbound</q> events are to do with
-reading from channel sources. Instead, <q>inbound</q> events are events that originate <em>from</em> the channel source (e.g. the socket): that is, events that the
-channel source tells you about. This includes things like <code>channelRead</code> (<q>there is some data to read</q>), but it also includes things like
-<code>channelWritabilityChanged</code> (<q>this source is no longer marked writable</q>).</p>
-
-<p>We <em>strongly</em> advise against implementing this protocol directly. Please implement <code><a href="../Protocols/ChannelInboundHandler.html">ChannelInboundHandler</a></code>.</p>
+<p>We <em>strongly</em> advice against implementing this protocol directly. Please implement <code><a href="../Protocols/ChannelInboundHandler.html">ChannelInboundHandler</a></code>.</p>
 
           </div>
         </section>

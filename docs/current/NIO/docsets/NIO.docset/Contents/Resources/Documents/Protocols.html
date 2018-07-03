@@ -545,12 +545,7 @@ passed to or returned by the operations are used to retrieve the result of an op
                       <div class="abstract">
                         <p>Untyped <code><a href="Protocols/ChannelHandler.html">ChannelHandler</a></code> which handles outbound I/O events or intercept an outbound I/O operation.</p>
 
-<p>Despite the fact that <code>write</code> is one of the methods on this <code>protocol</code>, you should avoid assuming that <q>outbound</q> events are to do with
-writing to channel sources. Instead, <q>outbound</q> events are events that are passed <em>to</em> the channel source (e.g. a socket): that is, things you tell
-the channel source to do. That includes <code>write</code> (<q>write this data to the channel source</q>), but it also includes <code>read</code> (<q>please begin attempting to read from
-the channel source</q>) and <code>bind</code> (<q>please bind the following address</q>), which have nothing to do with sending data.</p>
-
-<p>We <em>strongly</em> advise against implementing this protocol directly. Please implement <code><a href="Protocols/ChannelOutboundHandler.html">ChannelOutboundHandler</a></code>.</p>
+<p>We <em>strongly</em> advice against implementing this protocol directly. Please implement <code><a href="Protocols/ChannelOutboundHandler.html">ChannelOutboundHandler</a></code>.</p>
 
                         <a href="Protocols/_ChannelOutboundHandler.html" class="slightly-smaller">See more</a>
                       </div>
@@ -580,12 +575,7 @@ the channel source</q>) and <code>bind</code> (<q>please bind the following addr
                       <div class="abstract">
                         <p>Untyped <code><a href="Protocols/ChannelHandler.html">ChannelHandler</a></code> which handles inbound I/O events.</p>
 
-<p>Despite the fact that <code>channelRead</code> is one of the methods on this <code>protocol</code>, you should avoid assuming that <q>inbound</q> events are to do with
-reading from channel sources. Instead, <q>inbound</q> events are events that originate <em>from</em> the channel source (e.g. the socket): that is, events that the
-channel source tells you about. This includes things like <code>channelRead</code> (<q>there is some data to read</q>), but it also includes things like
-<code>channelWritabilityChanged</code> (<q>this source is no longer marked writable</q>).</p>
-
-<p>We <em>strongly</em> advise against implementing this protocol directly. Please implement <code><a href="Protocols/ChannelInboundHandler.html">ChannelInboundHandler</a></code>.</p>
+<p>We <em>strongly</em> advice against implementing this protocol directly. Please implement <code><a href="Protocols/ChannelInboundHandler.html">ChannelInboundHandler</a></code>.</p>
 
                         <a href="Protocols/_ChannelInboundHandler.html" class="slightly-smaller">See more</a>
                       </div>

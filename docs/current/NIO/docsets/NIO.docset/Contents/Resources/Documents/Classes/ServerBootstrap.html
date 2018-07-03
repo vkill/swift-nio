@@ -421,13 +421,6 @@
     <span class="k">try!</span> <span class="n">channel</span><span class="o">.</span><span class="n">closeFuture</span><span class="o">.</span><span class="nf">wait</span><span class="p">()</span> <span class="c1">// wait forever as we never close the Channel</span>
 </code></pre>
 
-<p>The <code><a href="../Classes/EventLoopFuture.html">EventLoopFuture</a></code> returned by <code>bind</code> will fire with a <code>ServerSocketChannel</code>. This is the channel that owns the listening socket.
-Each time it accepts a new connection it will fire a <code>SocketChannel</code> through the <code><a href="../Classes/ChannelPipeline.html">ChannelPipeline</a></code> via <code>fireChannelRead</code>: as a result,
-the <code>ServerSocketChannel</code> operates on <code><a href="../Protocols/Channel.html">Channel</a></code>s as inbound messages. Outbound messages are not supported on a <code>ServerSocketChannel</code>
-which means that each write attempt will fail.</p>
-
-<p>Accepted <code>SocketChannel</code>s operate on <code><a href="../Structs/ByteBuffer.html">ByteBuffer</a></code> as inbound data, and <code><a href="../Enums/IOData.html">IOData</a></code> as outbound data.</p>
-
           </div>
         </section>
 
@@ -554,8 +547,6 @@ which means that each write attempt will fail.</p>
                       <div class="abstract">
                         <p>Initialize the <code>ServerSocketChannel</code> with <code>initializer</code>. The most common task in initializer is to add
 <code><a href="../Protocols/ChannelHandler.html">ChannelHandler</a></code>s to the <code><a href="../Classes/ChannelPipeline.html">ChannelPipeline</a></code>.</p>
-
-<p>The <code>ServerSocketChannel</code> uses the accepted <code><a href="../Protocols/Channel.html">Channel</a></code>s as inbound messages.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     <p>To set the initializer for the accepted <code>SocketChannel</code>s, look at <code>ServerBootstrap.childChannelInitializer</code>.</p>
@@ -567,7 +558,7 @@ which means that each write attempt will fail.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">serverChannelInitializer</span><span class="p">(</span><span class="n">_</span> <span class="nv">initializer</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Protocols/Channel.html">Channel</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/EventLoopFuture.html">EventLoopFuture</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">serverChannelInitializer</span><span class="p">(</span><span class="n">_</span> <span class="nv">initializer</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Protocols/Channel.html">Channel</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/EventLoopFuture.html">EventLoopFuture</a></span><span class="o">&lt;</span><span class="p">()</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -609,14 +600,12 @@ which means that each write attempt will fail.</p>
                         <p>Initialize the accepted <code>SocketChannel</code>s with <code>initializer</code>. The most common task in initializer is to add
 <code><a href="../Protocols/ChannelHandler.html">ChannelHandler</a></code>s to the <code><a href="../Classes/ChannelPipeline.html">ChannelPipeline</a></code>.</p>
 
-<p>The accepted <code><a href="../Protocols/Channel.html">Channel</a></code> will operate on <code><a href="../Structs/ByteBuffer.html">ByteBuffer</a></code> as inbound and <code><a href="../Enums/IOData.html">IOData</a></code> as outbound messages.</p>
-
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">childChannelInitializer</span><span class="p">(</span><span class="n">_</span> <span class="nv">initializer</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Protocols/Channel.html">Channel</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/EventLoopFuture.html">EventLoopFuture</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">childChannelInitializer</span><span class="p">(</span><span class="n">_</span> <span class="nv">initializer</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Protocols/Channel.html">Channel</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/EventLoopFuture.html">EventLoopFuture</a></span><span class="o">&lt;</span><span class="p">()</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>

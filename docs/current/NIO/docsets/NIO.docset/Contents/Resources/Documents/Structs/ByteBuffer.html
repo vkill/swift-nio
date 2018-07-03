@@ -93,6 +93,9 @@
                 <a class="nav-group-task-link" href="../Classes/IdleStateHandler.html">IdleStateHandler</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/IdleStateHandler/IdleStateEvent.html">– IdleStateEvent</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/MultiThreadedEventLoopGroup.html">MultiThreadedEventLoopGroup</a>
               </li>
               <li class="nav-group-task">
@@ -196,6 +199,9 @@
                 <a class="nav-group-task-link" href="../Extensions/EmbeddedScheduledTask.html">EmbeddedScheduledTask</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/FixedWidthInteger.html">FixedWidthInteger</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/Heap.html">Heap</a>
               </li>
               <li class="nav-group-task">
@@ -218,9 +224,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/UInt32.html">UInt32</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Extensions/UInt64.html">UInt64</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/UnsafeBufferPointer.html">UnsafeBufferPointer</a>
@@ -321,6 +324,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ChannelOptions.html">ChannelOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ChannelShouldQuiesceEvent.html">ChannelShouldQuiesceEvent</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/CircularBuffer.html">CircularBuffer</a>
@@ -2102,6 +2108,11 @@ This method is likely more efficient than the one operating on plain <code>Colle
                         <p>Slice the readable bytes off this <code>ByteBuffer</code> without modifying the reader index. This method will return a
 <code>ByteBuffer</code> sharing the underlying storage with the <code>ByteBuffer</code> the method was invoked on. The returned
 <code>ByteBuffer</code> will contain the bytes in the range <code>readerIndex..&lt;writerIndex</code> of the original <code>ByteBuffer</code>.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Because <code>ByteBuffer</code> implements copy-on-write a copy of the storage will be automatically triggered when either of the <code>ByteBuffer</code>s sharing storage is written to.</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -2138,6 +2149,11 @@ the <code>ByteBuffer</code> the method was invoked on.
 The returned <code>ByteBuffer</code> will contain the bytes in the range <code>readerIndex..&lt;(readerIndex + length)</code> of the
 original <code>ByteBuffer</code>.
 The <code><a href="../Structs/ByteBuffer.html#/s:3NIO10ByteBufferV11readerIndexSiv">readerIndex</a></code> of the returned <code>ByteBuffer</code> will be <code>0</code>, the <code><a href="../Structs/ByteBuffer.html#/s:3NIO10ByteBufferV11writerIndexSiv">writerIndex</a></code> will be <code>length</code>.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Because <code>ByteBuffer</code> implements copy-on-write a copy of the storage will be automatically triggered when either of the <code>ByteBuffer</code>s sharing storage is written to.</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -2474,7 +2490,8 @@ The <code><a href="../Structs/ByteBuffer.html#/s:3NIO10ByteBufferV11readerIndexS
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="n">readInteger</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">FixedWidthInteger</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">endianness</span><span class="p">:</span> <span class="kt"><a href="../Enums/Endianness.html">Endianness</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">big</span><span class="p">,</span> <span class="nv">as</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span> <span class="o">=</span> <span class="kt">T</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@_inlineable</span>
+<span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="n">readInteger</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">FixedWidthInteger</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">endianness</span><span class="p">:</span> <span class="kt"><a href="../Enums/Endianness.html">Endianness</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">big</span><span class="p">,</span> <span class="nv">as</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span> <span class="o">=</span> <span class="kt">T</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -2536,7 +2553,8 @@ The <code><a href="../Structs/ByteBuffer.html#/s:3NIO10ByteBufferV11readerIndexS
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">getInteger</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">FixedWidthInteger</span><span class="o">&gt;</span><span class="p">(</span><span class="n">at</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">endianness</span><span class="p">:</span> <span class="kt"><a href="../Enums/Endianness.html">Endianness</a></span> <span class="o">=</span> <span class="kt"><a href="../Enums/Endianness.html">Endianness</a></span><span class="o">.</span><span class="n">big</span><span class="p">,</span> <span class="nv">as</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span> <span class="o">=</span> <span class="kt">T</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@_inlineable</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">getInteger</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">FixedWidthInteger</span><span class="o">&gt;</span><span class="p">(</span><span class="n">at</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">endianness</span><span class="p">:</span> <span class="kt"><a href="../Enums/Endianness.html">Endianness</a></span> <span class="o">=</span> <span class="kt"><a href="../Enums/Endianness.html">Endianness</a></span><span class="o">.</span><span class="n">big</span><span class="p">,</span> <span class="nv">as</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span> <span class="o">=</span> <span class="kt">T</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -2611,6 +2629,7 @@ The <code><a href="../Structs/ByteBuffer.html#/s:3NIO10ByteBufferV11readerIndexS
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">@_inlineable</span>
 <span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="n">write</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">FixedWidthInteger</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">integer</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">endianness</span><span class="p">:</span> <span class="kt"><a href="../Enums/Endianness.html">Endianness</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">big</span><span class="p">,</span> <span class="nv">as</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span> <span class="o">=</span> <span class="kt">T</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
@@ -2674,6 +2693,7 @@ The <code><a href="../Structs/ByteBuffer.html#/s:3NIO10ByteBufferV11readerIndexS
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">@_inlineable</span>
 <span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="k">set</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">FixedWidthInteger</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">integer</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">at</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">endianness</span><span class="p">:</span> <span class="kt"><a href="../Enums/Endianness.html">Endianness</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">big</span><span class="p">,</span> <span class="nv">as</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span> <span class="o">=</span> <span class="kt">T</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>

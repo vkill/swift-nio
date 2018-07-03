@@ -93,6 +93,9 @@
                 <a class="nav-group-task-link" href="../Classes/IdleStateHandler.html">IdleStateHandler</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/IdleStateHandler/IdleStateEvent.html">– IdleStateEvent</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/MultiThreadedEventLoopGroup.html">MultiThreadedEventLoopGroup</a>
               </li>
               <li class="nav-group-task">
@@ -196,6 +199,9 @@
                 <a class="nav-group-task-link" href="../Extensions/EmbeddedScheduledTask.html">EmbeddedScheduledTask</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/FixedWidthInteger.html">FixedWidthInteger</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/Heap.html">Heap</a>
               </li>
               <li class="nav-group-task">
@@ -218,9 +224,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/UInt32.html">UInt32</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Extensions/UInt64.html">UInt64</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/UnsafeBufferPointer.html">UnsafeBufferPointer</a>
@@ -321,6 +324,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ChannelOptions.html">ChannelOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ChannelShouldQuiesceEvent.html">ChannelShouldQuiesceEvent</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/CircularBuffer.html">CircularBuffer</a>
@@ -972,6 +978,76 @@ case the <code><a href="../Structs/ByteBuffer.html">ByteBuffer</a></code> will c
                       <div>
                         <h4>Return Value</h4>
                         <p>An <code><a href="../Classes/EventLoopFuture.html">EventLoopFuture</a></code> which delivers a <code><a href="../Structs/ByteBuffer.html">ByteBuffer</a></code> if the read was successful or a failure on error.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3NIO17NonBlockingFileIOV04openD0AA15EventLoopFutureCyAA0D6HandleC_AA0D6RegionVtGSS4path_AA0gH0_p05eventH0tF"></a>
+                    <a name="//apple_ref/swift/Method/openFile(path:eventLoop:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3NIO17NonBlockingFileIOV04openD0AA15EventLoopFutureCyAA0D6HandleC_AA0D6RegionVtGSS4path_AA0gH0_p05eventH0tF">openFile(path:eventLoop:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Open the file at <code>path</code> on a private thread pool which is separate from any <code><a href="../Protocols/EventLoop.html">EventLoop</a></code> thread.</p>
+
+<p>This function will return (a future) of the <code><a href="../Classes/FileHandle.html">FileHandle</a></code> associated with the file opened and a <code><a href="../Structs/FileRegion.html">FileRegion</a></code>
+comprising of the whole file. The caller must close the returned <code><a href="../Classes/FileHandle.html">FileHandle</a></code> when its no longer needed.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>The reason this returns the <code><a href="../Classes/FileHandle.html">FileHandle</a></code> and the <code><a href="../Structs/FileRegion.html">FileRegion</a></code> is that both the opening of a file as well as the querying of its size are blocking.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">openFile</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">eventLoop</span><span class="p">:</span> <span class="kt"><a href="../Protocols/EventLoop.html">EventLoop</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/EventLoopFuture.html">EventLoopFuture</a></span><span class="o">&lt;</span><span class="p">(</span><span class="kt"><a href="../Classes/FileHandle.html">FileHandle</a></span><span class="p">,</span> <span class="kt"><a href="../Structs/FileRegion.html">FileRegion</a></span><span class="p">)</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>path</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The path of the file to be opened.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>eventLoop</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code><a href="../Protocols/EventLoop.html">EventLoop</a></code> on which the returned <code><a href="../Classes/EventLoopFuture.html">EventLoopFuture</a></code> will fire.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An <code><a href="../Classes/EventLoopFuture.html">EventLoopFuture</a></code> containing the <code><a href="../Classes/FileHandle.html">FileHandle</a></code> and the <code><a href="../Structs/FileRegion.html">FileRegion</a></code> comprising the whole file.</p>
                       </div>
                     </section>
                   </div>
